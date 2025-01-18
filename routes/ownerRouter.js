@@ -26,14 +26,14 @@ if(process.env.NODE_ENV === "development"){
 }
 
 router.get("/login", (req, res) => {
-    res.render("owner-login");
+    res.render("owner-login", {loggedIn: false});
 })
 
 router.post("/login", logInAdmin);
 
 router.get("/admin", (req, res) => {
     let success = req.flash("success");
-    res.render("createproducts", {success});
+    res.render("createproducts", {success, loggedIn: false});
 })
 
 module.exports = router;
